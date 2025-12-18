@@ -8,7 +8,10 @@ export default function App() {
   const robotImages = [
     'image_4.jpg', // Front view with wheels
     'image_3.jpg', // Hand holding controller
-    'image_2.jpg'  // Side view with controller
+    'image_2.jpg',
+    'image_1.jpg',
+    'image_5.jpg',
+    'image_6.jpg'  // Side view with controller
   ];
 
   const features = [
@@ -64,7 +67,7 @@ export default function App() {
   return (
     <div className="min-h-screen bg-slate-900 text-white">
       <div className="fixed inset-0 bg-gradient-to-br from-cyan-500 via-teal-500 to-cyan-600 -z-10"></div>
-      
+
       {/* Navigation */}
       <nav className="fixed top-0 w-full bg-cyan-900/60 backdrop-blur-md z-50 border-b border-cyan-300/30">
         <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
@@ -73,19 +76,19 @@ export default function App() {
             <span className="text-xl font-bold">EnviroScout</span>
           </div>
           <div className="flex gap-6">
-            <button 
+            <button
               onClick={() => setActiveSection('overview')}
               className={`hover:text-cyan-400 transition ${activeSection === 'overview' ? 'text-cyan-400' : ''}`}
             >
               Overview
             </button>
-            <button 
+            <button
               onClick={() => setActiveSection('features')}
               className={`hover:text-cyan-400 transition ${activeSection === 'features' ? 'text-cyan-400' : ''}`}
             >
               Features
             </button>
-            <button 
+            <button
               onClick={() => setActiveSection('specs')}
               className={`hover:text-cyan-400 transition ${activeSection === 'specs' ? 'text-cyan-400' : ''}`}
             >
@@ -108,7 +111,7 @@ export default function App() {
                 Environmental Sensing Robot
               </h1>
               <p className="text-xl text-white/90 mb-8">
-                An intelligent autonomous robot designed for comprehensive indoor environmental monitoring 
+                An intelligent autonomous robot designed for comprehensive indoor environmental monitoring
                 with advanced remote control capabilities
               </p>
               <div className="flex gap-4">
@@ -125,20 +128,20 @@ export default function App() {
             {/* Robot Image Gallery */}
             <div className="relative">
               <div className="relative overflow-hidden rounded-2xl border-2 border-white/30 shadow-2xl">
-                <img 
-                  src={robotImages[currentImageIndex]} 
-                  alt="Environmental Sensing Robot" 
+                <img
+                  src={robotImages[currentImageIndex]}
+                  alt="Environmental Sensing Robot"
                   className="w-full h-auto object-cover"
                 />
-                
+
                 {/* Image Navigation */}
-                <button 
+                <button
                   onClick={prevImage}
                   className="absolute left-4 top-1/2 -translate-y-1/2 bg-cyan-900/80 hover:bg-cyan-800 p-2 rounded-full transition"
                 >
                   <ChevronLeft className="w-6 h-6" />
                 </button>
-                <button 
+                <button
                   onClick={nextImage}
                   className="absolute right-4 top-1/2 -translate-y-1/2 bg-cyan-900/80 hover:bg-cyan-800 p-2 rounded-full transition"
                 >
@@ -151,9 +154,8 @@ export default function App() {
                     <button
                       key={idx}
                       onClick={() => setCurrentImageIndex(idx)}
-                      className={`w-2 h-2 rounded-full transition ${
-                        idx === currentImageIndex ? 'bg-white w-6' : 'bg-white/50'
-                      }`}
+                      className={`w-2 h-2 rounded-full transition ${idx === currentImageIndex ? 'bg-white w-6' : 'bg-white/50'
+                        }`}
                     />
                   ))}
                 </div>
@@ -168,10 +170,10 @@ export default function App() {
         <div className="max-w-6xl mx-auto">
           <h2 className="text-4xl font-bold text-center mb-4">Key Features</h2>
           <p className="text-center text-white/80 mb-12">Advanced capabilities for comprehensive environmental monitoring</p>
-          
+
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {features.map((feature, idx) => (
-              <div 
+              <div
                 key={idx}
                 className="bg-cyan-600/30 border border-white/20 rounded-xl p-6 hover:border-white/40 hover:bg-cyan-600/40 transition duration-300"
               >
@@ -188,7 +190,7 @@ export default function App() {
       <div className="py-20 px-6">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-4xl font-bold text-center mb-12">Technical Specifications</h2>
-          
+
           <div className="bg-cyan-600/20 border border-white/20 rounded-2xl p-8">
             <div className="grid md:grid-cols-2 gap-6">
               {specs.map((spec, idx) => (
@@ -206,7 +208,7 @@ export default function App() {
       <div className="py-20 px-6 bg-teal-500/30">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-4xl font-bold text-center mb-12">Design & Components</h2>
-          
+
           <div className="grid md:grid-cols-2 gap-8">
             <div className="bg-cyan-600/30 border border-white/20 rounded-2xl overflow-hidden">
               <img src="image_2.jpg" alt="Robot with Controller" className="w-full h-64 object-cover" />
@@ -215,11 +217,11 @@ export default function App() {
                 <p className="text-white/80">Four-wheel omni drive system for 360° maneuverability and precise positioning in tight indoor spaces.</p>
               </div>
             </div>
-            
+
             <div className="bg-cyan-600/30 border border-white/20 rounded-2xl overflow-hidden">
               <img src="image_3.jpg" alt="Control Board" className="w-full h-64 object-cover" />
               <div className="p-6">
-                <h3 className="text-xl font-semibold mb-2 text-white">Advanced Control System</h3>
+                <h3 className="text-xl font-semibold mb-2 text-white">custom pcb design</h3>
                 <p className="text-white/80">Custom PCB with integrated sensors and display for real-time monitoring and wireless connectivity.</p>
               </div>
             </div>
@@ -233,14 +235,14 @@ export default function App() {
           <Wifi className="w-16 h-16 text-white mx-auto mb-6" />
           <h2 className="text-4xl font-bold mb-6">Remote Control Capabilities</h2>
           <p className="text-xl text-white/90 mb-8">
-            Control your environmental sensing robot from anywhere with our intuitive 
-            web-based interface. Monitor real-time data, adjust sensing parameters, 
+            Control your environmental sensing robot from anywhere with our intuitive
+            web-based interface. Monitor real-time data, adjust sensing parameters,
             and navigate through your indoor spaces remotely.
           </p>
           <div className="grid md:grid-cols-3 gap-6 mt-12">
             <div className="bg-cyan-600/30 border border-white/20 rounded-xl p-6">
-              <h3 className="font-semibold mb-2 text-white">Web Interface</h3>
-              <p className="text-white/80 text-sm">Access from any browser</p>
+              <h3 className="font-semibold mb-2 text-white">multiplatform</h3>
+              <p className="text-white/80 text-sm">Access from any device</p>
             </div>
             <div className="bg-cyan-600/30 border border-white/20 rounded-xl p-6">
               <h3 className="font-semibold mb-2 text-white">Real-time Data</h3>
